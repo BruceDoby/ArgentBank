@@ -1,10 +1,17 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const token = localStorage.getItem('authToken');
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isUserPage = location.pathname === '/user';
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    localStorage.removeItem('authToken');
+    navigate('/');
+  };
 
   return (
     <>
@@ -14,7 +21,7 @@ const Navigation = () => {
             <i className="fa fa-user-circle"></i>
             Tony
           </NavLink>
-          <NavLink to="/sign-in" className="main-nav-item">
+          <NavLink to="/sign-in" className="main-nav-item" onClick={handleLogout}>
             <i className="fa fa-sign-out"></i>
             Sign Out
           </NavLink>
