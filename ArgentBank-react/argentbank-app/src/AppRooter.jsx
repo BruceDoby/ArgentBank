@@ -5,6 +5,7 @@ import SignIn from './pages/sign-in'
 import Header from './Header';
 import Footer from './Footer';
 import User from './pages/user';
+import PrivateRoute from './components/privateRoute';
 
 const AppRooter = () => {
   return (
@@ -13,7 +14,7 @@ const AppRooter = () => {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path='/user' element={<User />} />
+        <Route path="/user" element={<PrivateRoute><User /></PrivateRoute>} />
       </Routes>
       <Footer />
     </Router>

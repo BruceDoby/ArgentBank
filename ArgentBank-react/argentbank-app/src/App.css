@@ -188,6 +188,12 @@ body {
   font-size: 5rem;
 }*/
 
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
 .input-remember {
   display: flex;
 }
