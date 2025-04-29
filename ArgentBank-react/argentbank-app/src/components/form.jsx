@@ -22,6 +22,7 @@ function Form() {
 
       const data = await response.json()
       if (data.body && data.body.token) {
+        localStorage.setItem('authToken', data.body.token);
         dispatch(loginSuccess({ token: data.body.token }))
 
         // Récupérer les infos du user maintenant qu'on a le token

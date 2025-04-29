@@ -22,6 +22,10 @@ const userSlice = createSlice({
       state.user = action.payload
       localStorage.setItem("user", JSON.stringify(action.payload))
     },
+    updateUserSuccess(state, action) {
+      state.user = { ...state.user, ...action.payload };
+      localStorage.setItem("user", JSON.stringify(state.user));
+    },
     loginFailure(state, action) {
       state.error = action.payload
     },
@@ -35,7 +39,7 @@ const userSlice = createSlice({
   }
 })
 
-export const { loginSuccess, loginFailure, userInfoSuccess, logout } = userSlice.actions
+export const { loginSuccess, loginFailure, userInfoSuccess, logout, updateUserSuccess } = userSlice.actions
 export default userSlice.reducer
 
 // On définie d'abord l'état initial, en récupérant le token si un est trouvé, en récupérant les infos utilisateur si jamais il y en a,
