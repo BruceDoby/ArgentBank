@@ -77,5 +77,24 @@ function User() {
 
 export default User
 
-// la 1ere const va utiliser le selector pour récupérer les infos de l'utilisateur, unpeu de la même manière que pour privateroute
-// les 2 autres const contiendra soit du vide si user est null soit le prénom et le nom de l'utilisateur
+// la 1ere const (l9) va utiliser le selector pour récupérer les infos de l'utilisateur, unpeu de la même manière que pour privateroute
+// les 2 autres const (l14-15) contiendra soit du vide si user est null soit le prénom et le nom de l'utilisateur
+// on importe les hooks useSelector et useDispatch provenant de react-redux qui servent respectivement à lire les données depuis le store
+// et à envoyer une action au store redux (pour mettre à jour le nom d'utilisateur)
+// L10 et 11 on utilise la const dispatch pour l'envoi d'action donc et on récuèpre le token pour le stocker après connexion
+// La const isEditing servira à indiquer si l'utilisateur va modifier son nom, on le mets en false par défaut pour dire que non, et
+// setIsEditing sera utilisé plus tard avec la const handleEditClick pour que lorsque l'on clique sur le bouton éditer, on indique que 
+// l'utilisateur est entrain de modifier son nom
+// la const handleCancel servira à remettre isEditing à false dans le cas où on comptait modifier le nom mais qu'on a finalement annulé
+// en appuyant sur le bouton cancel
+// la const handleSubmit s'occupera ainsi de gérer l'envoie du nom mis à jour avec la method PUT, avant ça on a la récupération des donées
+// de l'API, avec le headers on indique donc les données qu'on envoi (format JSON), on précise également que l'opération nécessite une
+// autorisation impliquant la présence du token pour vérifier que l'utilisateur est connecté et a donc bien l'autorisation d'effectué cette
+// opération, le body envoi ensuite le nouvel objet avec la valeure userName, on également une erreur dans le cas où l'on a pas la response
+// avec le status actuel de la response, on récupère ensuite dans data les données JSON de la response
+// on vérifie ensuite le status renvoyé par l'API, s'il correspond à 200, on envoie updateUserSuccess avec les nouvelles valeures pour
+// procéder aux modifications dans le store et on remets isEditing à false pour revenir à l'état normal, si ce n'est pas le cas cependant
+// on affiche une erreur dans la console avec les infos récupéré via data et on a bien sûr le try catch qui sert à intercepter les
+// potentielles erreures
+// dans le HTML on a ensuite la vérification de si l'on souhaite éditer ou nom le nom d'utilisateur avec isEditing ? : (opérateur ternaire)
+// si c'est le cas, on affiche le user-form avec les informations qui luis sont passé, sinon on affiche le texte de base
