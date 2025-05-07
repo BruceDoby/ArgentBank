@@ -12,7 +12,8 @@ const Navigation = () => {
 
   const isAuthenticated = useSelector(state => state.user.isAuthenticated);
   const user = useSelector(state => state.user.user)
-  const firstName = user?.firstName || "User"
+  // const firstName = user?.firstName || "User"
+  const displayName = user?.userName ? user.userName : user?.firstName || "User";
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -27,7 +28,7 @@ const Navigation = () => {
         <>
           <NavLink to="/user" className="main-nav-item">
             <i className="fa fa-user-circle"></i>
-            {firstName}
+            {displayName}
           </NavLink>
           <NavLink to="/" className="main-nav-item" onClick={handleLogout}>
             <i className="fa fa-sign-out"></i>
@@ -51,3 +52,6 @@ export default Navigation;
 // les infos de l'utilisateur et la const firstName va contenir le prénom de l'utilisateur ou "user" si le prénom n'est pas disponible
 // La const handleLogOut va déconnecter l'utilisateur lorsque celui ci cliquera sur le bouton sign out en supprimant le token, en évitant
 // de recharger automatiquement la page, en envoyant l'action au store et en renvoyant l'utilisateur à l'accueil après coup
+// Modification effectuée le 07/05 : on a remplace la const firstName qui vérifiait si le prénom était disponible pour l'affiche dans
+// la barre de connexion par la const displayName, qui vérifie maintenant d'abord si le userName existe, si oui c'est lui qui est affiché
+// sinon c'est le firstName et si l'on a aucun des deux on affiche juste le mot "user" au cas où
