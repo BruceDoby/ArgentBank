@@ -6,6 +6,7 @@ import Header from './Header';
 import Footer from './Footer';
 import User from './pages/user';
 import PrivateRoute from './components/privateRoute';
+import Error from './pages/error';
 
 const AppRooter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRooter = () => {
         <Route path="/" element={<App />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/user" element={<PrivateRoute><User /></PrivateRoute>} />
+        <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
     </Router>

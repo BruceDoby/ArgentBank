@@ -25,7 +25,7 @@ const Navigation = () => {
   return (
     <>
       {isAuthenticated ? (
-        <>
+        <div className='navbar__links'>
           <NavLink to="/user" className="main-nav-item">
             <i className="fa fa-user-circle"></i>
             {displayName}
@@ -34,7 +34,7 @@ const Navigation = () => {
             <i className="fa fa-sign-out"></i>
             Sign Out
           </NavLink>
-        </>
+        </div>
       ) : (
         <NavLink to="/sign-in" className="main-nav-item">
           <i className="fa fa-user-circle"></i>

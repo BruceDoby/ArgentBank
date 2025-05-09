@@ -80,6 +80,28 @@ body {
   width: 200px;
 }
 
+@media (max-width: 422px) {
+  .navbar__links {
+    max-width: 100%;
+    width: 200px;
+  }
+
+  .main-nav-item {
+    margin-right: clamp(0.25rem, 1vw, 1rem);
+    font-size: clamp(14px, 2vw, 18px);
+  }
+}
+
+@media (max-width: 321px) {
+  .navbar__links {
+    margin-right: -30px;
+  }
+
+  .main-nav-item {
+    font-size: 12px;
+  }
+}
+
 .hero {
   background-image: url('../img/bank-tree.jpeg');
   background-position: 0 -50px;
