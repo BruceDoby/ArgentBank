@@ -34,12 +34,5 @@ function UserForm({ user, handleCancel, handleSubmit }) {
 
 export default UserForm;
 
-
-// La fonction déclare le composant UserForm recevant les 3 props depuis User
-// la const userName utilisant le hook useState et la const handleUserNameChange en dessous va permettre de pouvoir s'occuper du changement
-// du userName directement dans le formulaire, enfin c'est unpeu compliqué à expliquer, mais le useState avec userName va permettre de
-// mettre une valeure de départ que sera le nom d'utilisateur affiché et ce que ça permet également c'est d'avoir une variable qui peut
-// changer, donc avec le setUserName dans la const handleUserNameChange on va pouvoir opérer la modification de cette valeure, mais bien
-// sûr si userName est undefined ou null on renvoi une chaine vide pour éviter un plantage
-// onSubmit={(e) => handleSubmit(e, userName)} est ensuite mis sur le form et pas sur le bouton pour rendre l'execution du déclenchement
-// du submit plus pratique (soit en appuyant sur save soit en appuyant sur entrée sur le clavier)
+// On reçoit les 3 props depuis user et ainsi en fonction de si on valide ou si on annule, une modification sera faites sur le nom 
+// d'utilisateur

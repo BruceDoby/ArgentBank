@@ -13,6 +13,5 @@ createRoot(document.getElementById('root')).render(
   </StrictMode>,
 )
 
-// Le provider va permettre de rendre le store redux accessible à tout les composants react, store qui lui sert à centraliser toutee les
-// données de l'application, il contient l'état global de l'app, les fonctions qui vont modifier cet état (reducers) et les outils servant
-// à interragir avec le state (dispatch ou getState)
+// Provider store : permets de rendre accessible le store redux à tout les composant de l'app, store servant lui même à centraliser
+// toutes les données de l'app
